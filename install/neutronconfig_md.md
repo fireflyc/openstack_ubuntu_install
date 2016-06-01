@@ -108,6 +108,69 @@ net.ipv4.conf.default.rp_filter=0
 #刷新系统参数
 sysctl -p 
 ```
+```
+#编辑/etc/neutron/neutron.conf
+[DEFAULT]
+verbose = True
+rpc_backend = rabbit
+auth_strategy = keystone
+core_plugin = ml2
+service_plugins = router
+allow_overlapping_ips = True
+
+[database]
+connection = mysql+pymysql://neutron:neutron123@10.0.8.50/neutron
+
+[oslo_messaging_rabbit]
+rabbit_host = controller.openstack
+rabbit_userid = neutron_compute
+rabbit_password = openstack123
+
+[keystone_authtoken]
+auth_uri = http://controller.openstack:5000
+auth_url = http://controller.openstack:35357
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+project_name = service
+username = neutron
+password = neutron123
+```
+```
+#编辑/etc/neutron/plugins/ml2/openvswitch_agent.ini
+[ovs]
+local_ip = 10.10.10.1
+
+[agent]
+tunnel_types = vxlan
+l2_population = True
+prevent_arp_spoofing = True
+
+[securitygroup]
+enable_security_group = True
+firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
+
+```
+允许nova使用neutron服务（在计算节点操作）
+```
+[neutron]
+url = http://controller.openstack:9696
+auth_url = http://controller.openstack:35357
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = neutron123
+```
+重启服务
+```
+service nova-compute restart
+service openvswitch-switch restart
+service neutron-openvswitch-agent restart
+```
+
 
 
 ##Network节点
