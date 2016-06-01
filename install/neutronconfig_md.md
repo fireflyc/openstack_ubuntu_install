@@ -97,6 +97,19 @@ neutron ext-list
 ```
 
 ##Compute节点
+首先修改系统参数，允许ip forward
+```
+#编辑/etc/sysctl.conf
+net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.default.rp_filter=0
+```
+执行
+```
+#刷新系统参数
+sysctl -p 
+```
+
+
 ##Network节点
 首先修改系统参数，允许ip forward
 ```
