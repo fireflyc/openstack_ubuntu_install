@@ -47,3 +47,10 @@ $ git checkout master
 $ git rebase upstream/master
 $ git push -f origin master
 ```
+
+觉得我写的不错，请我喝咖啡
+![支付宝](http://o83khlyy2.bkt.clouddn.com/2.png)
+
+
+欢迎关注公众账号了解更多信息
+![公众红账号](http://o83khlyy2.bkt.clouddn.com/qrcode_for_gh_f3674ea54fee_258%20%281%29.jpg)
