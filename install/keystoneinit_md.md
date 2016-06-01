@@ -50,6 +50,18 @@ openstack role create user
 openstack role add --project demo --user demo user
 ```
 
+## 验证
+```
+unset OS_TOKEN OS_URL
+#测试admin
+ openstack --os-auth-url http://controller:35357/v3 \
+  --os-project-domain-name default --os-user-domain-name default \
+  --os-project-name admin --os-username admin token issue
+#测试demo
+openstack --os-auth-url http://controller:5000/v3 \
+  --os-project-domain-name default --os-user-domain-name default \
+  --os-project-name demo --os-username demo token issue
+```
 ## 设定脚本
 脚本的用户是省去每次输入openstack命令时候的用户认证，新增一一个adminrc文件(位置随便放，我一般放在home目录)。脚本中有修改操作系统提示符，加载脚本之后会自动添加(os-admin)这样的提示
 ```
