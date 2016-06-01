@@ -98,3 +98,129 @@ neutron ext-list
 
 ##Compute节点
 ##Network节点
+首先修改系统参数，允许ip forward
+```
+#编辑/etc/sysctl.conf
+net.ipv4.ip_forward=1
+net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.default.rp_filter=0
+```
+执行
+```
+#刷新系统参数
+sysctl -p 
+```
+```
+#编辑/etc/neutron/neutron.conf
+[DEFAULT]
+rpc_backend = rabbit
+auth_strategy = keystone
+core_plugin = ml2
+service_plugins = router
+allow_overlapping_ips = True
+
+[database]
+connection = mysql+pymysql://neutron:neutron123@10.0.8.50/neutron
+
+[oslo_messaging_rabbit]
+rabbit_host = controller.openstack
+rabbit_userid = neutron
+rabbit_password = openstack123
+
+[agent]
+root_helper = sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
+
+[keystone_authtoken]
+auth_uri = http://controller.openstack:5000
+auth_url = http://controller.openstack:35357
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+project_name = service
+username = neutron
+password = neutron123
+```
+配置ml2
+```
+#编辑/etc/neutron/plugins/ml2/ml2_conf.ini
+[ml2]
+type_drivers = flat,vlan,gre,vxlan
+tenant_network_types = vxlan
+mechanism_drivers = openvswitch,l2population
+extension_drivers = port_security
+
+[ml2_type_vxlan]
+#vxlan的范围
+vni_ranges = 1:1000
+
+[ml2_type_flat]
+#外部网络是flat的类型
+flat_networks = external
+
+[securitygroup]
+enable_ipset = True
+```
+开启OVS，其中local_ip是neutron用于overlay的网络IP
+```
+#编辑/etc/neutron/plugins/ml2/openvswitch_agent.ini
+[ovs]
+local_ip = 10.10.10.254
+bridge_mappings = external:br-ex
+[agent]
+tunnel_types = vxlan
+l2_population = True
+prevent_arp_spoofing = True
+[securitygroup]
+enable_security_group = True
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+```
+开启L3 proxy external_network_bridge留空让所有网络使用一个agent。
+**千万要记住，有两个参数external_network_bridge、gateway_external_network_id 都不要设置。不要听信文档上的瞎说，如果你设置了会发现“外部端口”不是连接到br-ex，而是连接到br-int，所以虚拟机没有办法访问外网。不设置的作用相当于external_network_bridgebr-ex，如果为空的作用相当于external_network_bridge=br-int。gateway_external_network_id用于多租户访问外网的时候的分流，具体介绍参考文档(虽然不靠谱)**
+```
+# 编辑/etc/neutron/l3_agent.ini
+[DEFAULT]
+interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver
+```
+开启DHCP,dnsmasq_config_file选项指向dnsmasq-neutron.conf文件，该文件里面包含了强制设置DHCP Client使用Jumbo frames（加大MTU大小）
+```
+echo 'dhcp-option-force=26,1450' | sudo tee /etc/neutron/dnsmasq-neutron.conf
+```
+
+```
+# 编辑/etc/neutron/dhcp_agent.ini
+[DEFAULT]
+interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver
+dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
+enable_isolated_metadata = True
+dnsmasq_config_file = /etc/neutron/dnsmasq-neutron.conf
+```
+metadata_proxy_shared_secret的值要和nova的一样
+```
+#编辑/etc/neutron/metadata_agent.ini
+[DEFAULT]
+nova_metadata_ip = 10.0.8.50
+metadata_proxy_shared_secret = mate_data123
+```
+
+配置OVS桥接，其中br-ex要和配置文件里面的名字保持一致，p2p2是外部网络的网卡
+```
+ovs-vsctl add-br br-ex
+ovs-vsctl add-port br-ex p2p2
+
+#禁用Generic Receive Offload
+ethtool -K p2p2 gro off
+```
+重启服务
+```
+service openvswitch-switch restart
+service neutron-openvswitch-agent restart
+service neutron-dhcp-agent restart
+service neutron-metadata-agent restart
+service neutron-l3-agent restart
+```
+### 验证
+在Controller节点
+```
+neutron agent-list
+```
+
