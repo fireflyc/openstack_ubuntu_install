@@ -1,6 +1,6 @@
 OpenStack部署手册——mitaka(Ubuntu)
 ============
-[OpenStack](https://wiki.openstack.org/wiki/Neutron) OpenStack是一个美国国家航空航天局和Rackspace贡献给开源社区的云计算软件，它的授权许可是Apache。原始模块中包含“计算”、“存储”、“网络”三个模块，主要为企业提供私有云解决方案。现在的模块则更加丰富，而且应用范围也不局限于私有云。
+[OpenStack](https://www.openstack.org) OpenStack是一个美国国家航空航天局和Rackspace贡献给开源社区的云计算软件，它的授权许可是Apache。原始模块中包含“计算”、“存储”、“网络”三个模块，主要为企业提供私有云解决方案。现在的模块则更加丰富，而且应用范围也不局限于私有云。
 
 可以把OpenStack理解为一个“粘合剂”，它把OpenVSwtich、Linux、LVM（Linux卷管理）、KVM（Linux内核虚拟化）等云计算相关的工具“粘合”在一起，提供了一套完整的，可以和VMWare Esxi抗衡的“云计算套件”。有意思的是，OpenStack本身也是用了著名了“胶水语言”——Python写的。
 
