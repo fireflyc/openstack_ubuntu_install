@@ -19,7 +19,7 @@
        * [配置](install/novaconfig_md.md)
    * [Neutorn](install/neutron_install.md)
        * [安装](install/neturoninstall_md.md)
-       * [配置](install/neutron_config.md)
+       * [配置](install/neutronconfig_md.md)
 * [附录](appendix/README.md)
    * [OpenStack之殇](appendix/openstack_die.md)
    * [Neutron精要](appendix/neutron.md)
