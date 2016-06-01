@@ -12,7 +12,7 @@
        * [配置](install/keystoneconfig_md.md)
        * [初始化配置](install/keystoneinit_md.md)
    * [Glance](install/glancereadme_md.md)
-       * [安装](install/glance_install.md)
+       * [安装](install/glanceinstall_md.md)
        * [配置](install/glance_config.md)
    * [Nova](install/nova_install.md)
        * [配置](install/nova_config.md)
