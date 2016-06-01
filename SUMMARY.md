@@ -20,7 +20,7 @@
    * [Neutorn](install/neutronreadme.md)
        * [安装](install/neturoninstall_md.md)
        * [配置](install/neutronconfig_md.md)
-   * [Horizon安装与配置](install/horizon_install.md)
+   * [Horizon安装与配置](install/horizoninstall_md.md)
 * [附录](appendix/README.md)
    * [OpenStack之殇](appendix/openstack_die.md)
    * [Neutron精要](appendix/neutron.md)
