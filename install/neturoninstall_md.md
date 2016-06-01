@@ -5,3 +5,5 @@
 ```
 apt-get install neutron-server neutron-plugin-ml2 python-neutronclient
 ```
+##Compute节点
+##Network节点
