@@ -2,7 +2,7 @@
 
 * [前言](README.md)
 * [准备环境](env/readmemd.md)
-   * [网络规划](env/network.md)
+   * [网络规划](env/networkmd.md)
    * [服务器规划](env/host.md)
    * [初始化服务器](env/init.md)
    * [安装中间件](env/middleware.md)
