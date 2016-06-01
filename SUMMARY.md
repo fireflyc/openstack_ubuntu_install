@@ -18,7 +18,7 @@
        * [安装](install/novainstall_md.md)
        * [配置](install/nova_config.md)
    * [Neutorn](install/neutron_install.md)
-       * [安装](install/neturon_install.md)
+       * [安装](install/neturoninstall_md.md)
        * [配置](install/neutron_config.md)
 * [附录](appendix/README.md)
    * [OpenStack之殇](appendix/openstack_die.md)
