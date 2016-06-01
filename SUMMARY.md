@@ -21,7 +21,7 @@
        * [安装](install/neturoninstall_md.md)
        * [配置](install/neutronconfig_md.md)
    * [Horizon安装与配置](install/horizoninstall_md.md)
-* [附录](appendix/README.md)
+* [附录](appendix/readmemd.md)
    * [OpenStack之殇](appendix/openstackdie_md.md)
    * [Neutron精要](appendix/neutron.md)
    * [VxLAN介绍](appendix/vxlan.md)
