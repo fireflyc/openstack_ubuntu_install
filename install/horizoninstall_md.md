@@ -8,12 +8,12 @@ Horizon就是OpenStack提供的操作UI（丑哭了，难用哭了）。它的�
 ```
 apt-get install openstack-dashboard
 ```
-配置
+##配置
 ```
 #修改/etc/openstack-dashboard/local_settings.py
 OPENSTACK_HOST='10.0.8.50'
 ```
-重启服务
+##重启服务
 ```
 service apache2 reload
 service apache2 restart
