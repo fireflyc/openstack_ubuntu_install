@@ -9,7 +9,7 @@
 * [部署安装](install/README.md)
    * [Keystone](install/keystone_install.md)
        * [配置](install/keystone_config.md)
-   * [Glance](install/glance_install.md)
+   * [Glance](install/glanceinstall_md.md)
        * [配置](install/glance_config.md)
    * [Nova](install/nova_install.md)
        * [配置](install/nova_config.md)
