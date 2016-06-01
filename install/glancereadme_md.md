@@ -7,6 +7,7 @@ Glance是OpenStack中负责镜像管理的功能组件，虚拟机新建完成�
 ---|---
 控制节点|所有
 
+**下面的内容在Controller节点完成，主要用于初始化数据库和keystone的用户**
 ## 配置数据库
 ```
 CREATE DATABASE glance;
