@@ -15,7 +15,7 @@
        * [安装](install/glanceinstall_md.md)
        * [配置](install/glanceconfig_md.md)
    * [Nova](install/novaredme.md)
-       * [安装](install/nova_install.md)
+       * [安装](install/novainstall_md.md)
        * [配置](install/nova_config.md)
    * [Neutorn](install/neutron_install.md)
        * [安装](install/neturon_install.md)
