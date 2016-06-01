@@ -7,7 +7,7 @@
    * [初始化服务器](env/initmd.md)
    * [安装中间件](env/middlewaremd.md)
 * [部署安装](install/readmemd.md)
-   * [Keystone](install/keystone_install.md)
+   * [Keystone](install/keystoneinstall_md.md)
        * [配置](install/keystone_config.md)
    * [Glance](install/glanceinstall_md.md)
        * [安装](install/glance_install.md)
