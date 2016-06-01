@@ -10,6 +10,7 @@
    * [Keystone](install/keystoneredme.md)
        * [安装](install/keystoneinstall_md.md)
        * [配置](install/keystoneconfig_md.md)
+       * [初始化配置](install/keystone_init.md)
    * [Glance](install/glanceinstall_md.md)
        * [安装](install/glance_install.md)
        * [配置](install/glance_config.md)
