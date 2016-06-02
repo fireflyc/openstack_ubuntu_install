@@ -2,6 +2,11 @@
 ## Controller节点
 ```
 #便捷/etc/cinder/cinder.conf
+[DEFAULT]
+rpc_backend = rabbit
+auth_strategy = keystone
+my_ip = 10.0.8.52
+
 
 ```
 ### 验证
