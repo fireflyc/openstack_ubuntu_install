@@ -1,14 +1,14 @@
 # 配置
 ## Controller节点
 ```
-#便捷/etc/cinder/cinder.conf
+#编辑/etc/cinder/cinder.conf
 [DEFAULT]
 rpc_backend = rabbit
 auth_strategy = keystone
-my_ip = 10.0.8.52
+my_ip = 10.0.8.50
 
 [database]
-connection = mysql+pymysql://cinder:cinder123@10.0.8.52/cinder
+connection = mysql+pymysql://cinder:cinder123@10.0.8.50/cinder
 
 [oslo_messaging_rabbit]
 rabbit_host = 10.0.5.50
@@ -49,8 +49,54 @@ service cinder-api restart
 ```
 
 ## Storage节点
-### 安装软件包
 ```
-apt-get install cinder-api cinder-scheduler python-cinderclient
+编辑/etc/cinder/cinder.conf
+[DEFAULT]
+rpc_backend = rabbit
+auth_strategy = keystone
+enabled_backends = lvm
+
+my_ip = 10.0.8.51
+glance_api_servers = http://controller.openstack:9292
+
+[database]
+connection = mysql+pymysql://cinder:cinder123@10.0.8.50/cinder
+
+[oslo_messaging_rabbit]
+rabbit_host = 10.0.5.50
+rabbit_userid = openstack
+rabbit_password = openstack123
+
+[keystone_authtoken]
+auth_uri = http://10.0.5.50:5000
+auth_url = http://10.0.5.50:35357
+memcached_servers = 10.0.5.50:11211
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+project_name = service
+username = cinder
+password = cinder123
+
+[lvm]
+volume_driver = cinder.volume.drivers.lvm.LVMVolumeDriver
+volume_group = cinder-volumes
+iscsi_protocol = iscsi
+iscsi_helper = tgtadm
+
+[oslo_concurrency]
+lock_path = /var/lib/cinder/tmp
+```
+重启服务
+```
+service tgt restart
+service cinder-volume restart
+```
+##验证
+```
+在 adminrc中指定OS_VOLUME_API_VERSION=2
+通过执行
+cinder service-list
+查看服务是不是已经启动
 ```
 
