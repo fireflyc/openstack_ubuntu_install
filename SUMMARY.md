@@ -23,7 +23,7 @@
    * [Horizon安装与配置](install/horizoninstall_md.md)
    * [Cinder](install/cinderreadme_md.md)
        * [安装](install/cinderinstall_md.md)
-       * [配置](install/cinder_config.md)
+       * [配置](install/cinderconfig_md.md)
 * [附录](appendix/readmemd.md)
    * [OpenStack之殇](appendix/openstackdie_md.md)
    * [Neutron精要](appendix/neutron.md)
