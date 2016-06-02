@@ -29,15 +29,23 @@ password = cinder123
 [oslo_concurrency]
 lock_path = /var/lib/cinder/tmp
 ```
-
+同步数据库，重启服务
 ```
 cinder-manage db sync
 ```
-
-### 验证
+配置Nova，修改控制节点的nova.conf
 ```
-source adminrc
-neutron ext-list
+#编辑/etc/nova/nova.conf
+
+[cinder]
+os_region_name = RegionOne
+
+```
+重启nova服务，重启cinder服务
+```
+service nova-api restart
+service cinder-scheduler restart
+service cinder-api restart
 ```
 
 ## Storage节点
