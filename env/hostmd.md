@@ -8,4 +8,6 @@ controller.openstack|控制节点
 network.openstack|网络节点
 compute1.openstack|计算节点
 
+##关于Cinder
+如果需要安装Cinder就要考虑为存储节点预留一块硬盘。
 
