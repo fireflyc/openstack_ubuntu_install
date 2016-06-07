@@ -21,14 +21,14 @@ lock_path = /var/lock/cinder
 connection = mysql+pymysql://cinder:cinder123@10.0.8.50/cinder
 
 [oslo_messaging_rabbit]
-rabbit_host = 10.0.5.50
+rabbit_host = 10.0.8.50
 rabbit_userid = openstack
 rabbit_password = openstack123
 
 [keystone_authtoken]
-auth_uri = http://10.0.5.50:5000
-auth_url = http://10.0.5.50:35357
-memcached_servers = 10.0.5.50:11211
+auth_uri = http://10.0.8.50:5000
+auth_url = http://10.0.8.50:35357
+memcached_servers = 10.0.8.50:11211
 auth_type = password
 project_domain_name = default
 user_domain_name = default
@@ -66,21 +66,21 @@ rpc_backend = rabbit
 auth_strategy = keystone
 enabled_backends = lvm
 
-my_ip = 10.0.8.51
+my_ip = 10.0.8.52
 glance_api_servers = http://controller.openstack:9292
 
 [database]
 connection = mysql+pymysql://cinder:cinder123@10.0.8.50/cinder
 
 [oslo_messaging_rabbit]
-rabbit_host = 10.0.5.50
+rabbit_host = 10.0.8.50
 rabbit_userid = openstack
 rabbit_password = openstack123
 
 [keystone_authtoken]
-auth_uri = http://10.0.5.50:5000
-auth_url = http://10.0.5.50:35357
-memcached_servers = 10.0.5.50:11211
+auth_uri = http://10.0.8.50:5000
+auth_url = http://10.0.8.50:35357
+memcached_servers = 10.0.8.50:11211
 auth_type = password
 project_domain_name = default
 user_domain_name = default
