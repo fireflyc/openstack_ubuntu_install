@@ -19,6 +19,7 @@ GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' \
 ## 配置Keystone账号
 ```
 openstack user create --domain default --password-prompt glance
+#输入glance123
 
 openstack role add --project service --user glance admin
 
