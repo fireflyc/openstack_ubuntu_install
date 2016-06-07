@@ -8,6 +8,8 @@ Cinder是OpenStack复杂块存储（Block Storage）的模块，它通过使用i
 控制节点|安装准备(配置数据库和keystone)、安装配置cinder-api、cinder-scheduler 
 存储节点|可以是单独的存储节点，在我们的实验环境中我们用网络节点作为我们的存储节点
 
+以下操作在controller节点完成
+
 ## 配置数据库
 ```
 CREATE DATABASE cinder;
