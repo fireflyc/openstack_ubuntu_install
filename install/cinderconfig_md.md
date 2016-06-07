@@ -41,7 +41,7 @@ lock_path = /var/lib/cinder/tmp
 ```
 同步数据库，重启服务
 ```
-cinder-manage db sync
+su -s /bin/sh -c "cinder-manage db sync" cinder
 ```
 配置Nova，修改控制节点的nova.conf
 ```
