@@ -39,3 +39,12 @@ neutron-server，neutron-server是负责neutron的API，转换成内部的调用
 * neutron-l3-agent，L3路由器
 * neutron-dhcp-agent，dhcp服务器
 * ovs-agent，响应MQ中的消息，调用OVS的接口开通桥接器、网络端口。它下发涉及访问外网的时候OpenFlow到OVS桥接器
+
+理解上面的进程之后我们基本上就可以“调试OpenStack”了，碰到错误我们首先要定位到时哪个进程出现的问题，之后再去哪个节点上查看日志。
+
+OpenStack中所有的组件日志都放在/var/log/<模块名>，比如nova的/var/log/nova。默认情况下openstack没有开启debug模式，所以看到的信息有限。在所有组件中通过修改
+```
+[DEFAULT]
+debug=True
+```
+可以打开DEBUG模式，可以看到更多的调试信息
