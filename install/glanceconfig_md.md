@@ -62,8 +62,8 @@ auth_type = password
 project_domain_name = default
 user_domain_name = default
 project_name = service
-username = glance
-password = glance123
+username = openstack
+password = openstack123
 
 [paste_deploy]
 flavor = keystone
