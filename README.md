@@ -21,6 +21,7 @@ OpenStack的开源模式充满商业的味道，它不像Linux、Mysql那样是�
   * 新增cinder安装模块
   * 修正keystone安装中的401错误
   * 修正无法使用openstack命令的错误
+  * 增加《OpenStack生存指南》
   
 * V0.1: 2016-06-1
 	*第一次提交。
