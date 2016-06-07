@@ -7,6 +7,16 @@ rpc_backend = rabbit
 auth_strategy = keystone
 my_ip = 10.0.8.50
 
+rootwrap_config = /etc/cinder/rootwrap.conf
+api_paste_confg = /etc/cinder/api-paste.ini
+iscsi_helper = tgtadm
+volume_name_template = volume-%s
+volume_group = cinder-volumes
+verbose = True
+auth_strategy = keystone
+state_path = /var/lib/cinder
+lock_path = /var/lock/cinder
+
 [database]
 connection = mysql+pymysql://cinder:cinder123@10.0.8.50/cinder
 
