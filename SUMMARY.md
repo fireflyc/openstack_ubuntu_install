@@ -28,6 +28,6 @@
    * [OpenStack之殇](appendix/openstackdie_md.md)
    * [Neutron精要](appendix/neutronmd.md)
    * [VxLAN介绍](appendix/vxlan.md)
-   * [OpenStack生存指南](appendix/debug_openstack.md)
+   * [OpenStack生存指南](appendix/debugopenstack_md.md)
    * [Neutron调试指南](appendix/debug_neutron.md)
 
