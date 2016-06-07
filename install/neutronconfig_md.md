@@ -26,7 +26,7 @@ connection = mysql+pymysql://neutron:neutron123@10.0.8.50/neutron
 
 [oslo_messaging_rabbit]
 rabbit_host = controller.openstack
-rabbit_userid = neutron_controller
+rabbit_userid = openstack
 rabbit_password = openstack123
 
 [keystone_authtoken]
@@ -123,7 +123,7 @@ connection = mysql+pymysql://neutron:neutron123@10.0.8.50/neutron
 
 [oslo_messaging_rabbit]
 rabbit_host = controller.openstack
-rabbit_userid = neutron_compute
+rabbit_userid = openstack
 rabbit_password = openstack123
 
 [keystone_authtoken]
@@ -200,7 +200,7 @@ connection = mysql+pymysql://neutron:neutron123@10.0.8.50/neutron
 
 [oslo_messaging_rabbit]
 rabbit_host = controller.openstack
-rabbit_userid = neutron
+rabbit_userid = openstack
 rabbit_password = openstack123
 
 [agent]
