@@ -85,7 +85,7 @@ auth_type = password
 project_domain_name = default
 user_domain_name = default
 project_name = service
-username = openstack
+username = cinder
 password = cinder123
 
 [lvm]
