@@ -29,4 +29,6 @@ apt-get update && apt-get dist-upgrade
 ```
 add-apt-repository cloud-archive:mitaka
 apt-get update && apt-get dist-upgrade
+#不安装这个无法使用openstack这个命令
+apt-get install python-openstackclient
 ```
