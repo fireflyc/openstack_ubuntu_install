@@ -85,4 +85,21 @@ ln -s /etc/apache2/sites-available/wsgi-keystone.conf /etc/apache2/sites-enabled
 #重启apache
 service apache2 restart
 ```
+## 设定脚本
+脚本的用户是省去每次输入openstack命令时候的用户认证，新增一一个adminrc文件(位置随便放，我一般放在home目录)。脚本中有修改操作系统提示符，加载脚本之后会自动添加(os-admin)这样的提示
+```
+#adminrc
+export OS_PROJECT_DOMAIN_NAME=default
+export OS_USER_DOMAIN_NAME=default
+export OS_PROJECT_NAME=admin
+export OS_USERNAME=admin
+export OS_PASSWORD=admin123
+export OS_AUTH_URL=http://controller.openstack:35357/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h(os-admin):\w\$"
+```
+使用脚本的时候只需要输入 source adminrc
+
+**后续所有针对openstack命令的操作都需要先执行 source adminrc**
 
