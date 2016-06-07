@@ -33,20 +33,20 @@ openstack service create --name cinderv2 \
 --description "OpenStack Block Storage" volumev2
 
 openstack endpoint create --region RegionOne \
-volume public http://storage.openstack:8776/v1/%\(tenant_id\)s
+volume public http://controller.openstack:8776/v1/%\(tenant_id\)s
 
 openstack endpoint create --region RegionOne \
-volume internal http://storage.openstack:8776/v1/%\(tenant_id\)s
+volume internal http://controller.openstack:8776/v1/%\(tenant_id\)s
 
 openstack endpoint create --region RegionOne \
-volume admin http://storage.openstack:8776/v1/%\(tenant_id\)s
+volume admin http://controller.openstack:8776/v1/%\(tenant_id\)s
 
 openstack endpoint create --region RegionOne \
-volumev2 public http://storage.openstack:8776/v2/%\(tenant_id\)s
+volumev2 public http://controller.openstack:8776/v2/%\(tenant_id\)s
 
 openstack endpoint create --region RegionOne \
-volumev2 internal http://storage.openstack:8776/v2/%\(tenant_id\)s
+volumev2 internal http://controller.openstack:8776/v2/%\(tenant_id\)s
 
 openstack endpoint create --region RegionOne \
-volumev2 admin http://storage.openstack:8776/v2/%\(tenant_id\)s
+volumev2 admin http://controller.openstack:8776/v2/%\(tenant_id\)s
 ```
