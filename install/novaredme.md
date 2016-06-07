@@ -30,6 +30,8 @@ GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' \
  #配置租户
 openstack user create --domain default \
   --password-prompt nova
+#输入nova123
+
 openstack role add --project service --user nova admin
  
  #配置service、endpoint
