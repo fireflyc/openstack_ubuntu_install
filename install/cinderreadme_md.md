@@ -31,7 +31,6 @@ openstack service create --name cinderv2 \
 --description "OpenStack Block Storage" volumev2
 
 openstack endpoint create --region RegionOne \
--region RegionOne \
 volume public http://storage.openstack:8776/v1/%\(tenant_id\)s
 
 openstack endpoint create --region RegionOne \
