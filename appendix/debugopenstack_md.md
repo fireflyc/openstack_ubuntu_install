@@ -28,7 +28,7 @@ neutron-server，neutron-server是负责neutron的API，转换成内部的调用
 ###nova
 * nova-compute，响应MQ中的消息，调用KVM开通虚拟机。发送消息到MQ，更新虚拟机状态。
 ###neutron
-* ovs-agent，响应MQ中的消息，调用OVS的接口开通桥接器、网络端口，它下发涉及访问虚拟机之间流量的时候OpenFlow到OVS桥接器
+* ovs-agent，响应MQ中的消息，调用OVS的接口开通桥接器、网络端口，它会下发OpenFlow到“内网”的桥接器（传送虚拟机之间流量的桥接器）
 ###cinder
 * cinder-volume，响应MQ中的消息，调用后端存储的API划分存储
 
