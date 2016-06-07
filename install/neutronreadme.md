@@ -26,6 +26,7 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%'  IDENTIFIED BY 'neutron123';
 ```
 #新建用户
 openstack user create --domain default --password-prompt neutron
+#输入neutron123
 
 openstack role add --project service --user neutron admin
 
