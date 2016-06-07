@@ -10,6 +10,10 @@ Keystone有以下几个概念
 
 扯完概念之后继续看我们的安装，Keystone安装成功之后需要提供一个Service的租户用于管理OpenStack所有的Service，一个Admin租户还有一个可选的demo租户(建议配置)。
 
+
+export OS_TOKEN=21d7fb48086e09f30d40be5a5e95a7196f2052b2cae6b491
+export OS_URL=http://10.0.0.11:35357/v3
+export OS_IDENTITY_API_VERSION=3
 ```
 #keystone本身也是openstack的service，所以先把自己放进去。开通service器有两步：
 
